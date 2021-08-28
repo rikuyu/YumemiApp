@@ -7,7 +7,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.example.yumemiapp.R
 import com.example.yumemiapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
