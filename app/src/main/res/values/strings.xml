@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">YumemiApp</string>
 
-    <string name="home_fragment_title">YumemiApp</string>
+    <string name="home_fragment_title">Home</string>
 </resources>

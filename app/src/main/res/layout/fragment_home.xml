@@ -26,6 +26,7 @@
             android:id="@+id/title_bottom_line"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="4dp"
             android:background="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_title" />
