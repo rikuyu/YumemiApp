@@ -37,6 +37,13 @@ class DetailFragment : Fragment() {
                     .actionDetailFragmentToHomeFragment()
             )
         }
+
+        binding.github.setOnClickListener {
+            findNavController().navigate(
+                DetailFragmentDirections
+                    .actionDetailFragmentToGithubFragment(args.profileInfo.html_url)
+            )
+        }
     }
 
     private fun loadDetailInfo(){
