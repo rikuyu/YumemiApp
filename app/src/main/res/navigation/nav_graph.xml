@@ -36,7 +36,7 @@
 
         <argument
             android:name="profileInfo"
-            app:argType="com.example.yumemi.model.data.Profile"/>
+            app:argType="com.example.yumemiapp.model.data.Profile"/>
 
     </fragment>
 

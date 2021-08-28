@@ -5,15 +5,42 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.yumemiapp.R
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.example.yumemiapp.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
+
+    private val args: DetailFragmentArgs by navArgs()
+
+    private var _binding: FragmentDetailBinding? = null
+    private val binding
+        get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        loadDetailInfo()
+
+        binding.buttonBack.setOnClickListener {
+            findNavController().navigate(
+                DetailFragmentDirections
+                    .actionDetailFragmentToHomeFragment()
+            )
+        }
+    }
+
+    private fun loadDetailInfo(){
+        binding.contributerName.text = args.profileInfo.name
+        Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributerIcon)
     }
 }

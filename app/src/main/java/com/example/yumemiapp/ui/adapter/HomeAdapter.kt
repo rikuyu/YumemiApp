@@ -16,6 +16,8 @@ import de.hdodenhof.circleimageview.CircleImageView
 class HomeAdapter(private val context: Context, private val contributers: List<ContributersItem>) :
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
+    private lateinit var detailListener: OnItemClickListener
+
     class HomeHolder(view: View) : RecyclerView.ViewHolder(view) {
         val buttonDetail: ImageView = view.findViewById(R.id.button_detail)
         val buttonFavorite: ImageView = view.findViewById(R.id.button_favorite)
@@ -42,9 +44,21 @@ class HomeAdapter(private val context: Context, private val contributers: List<C
             name = contributers[position].login,
             html_url = contributers[position].html_url
         )
+
+        holder.buttonDetail.setOnClickListener {
+            detailListener.onDetailClickListener(profile)
+        }
     }
 
     override fun getItemCount(): Int {
         return contributers.size
+    }
+
+    interface OnItemClickListener {
+        fun onDetailClickListener(profile: Profile)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.detailListener = listener
     }
 }
