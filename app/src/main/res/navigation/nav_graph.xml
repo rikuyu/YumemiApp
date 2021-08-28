@@ -40,6 +40,8 @@
 
     </fragment>
 
+<!--    todo    github-fragment -->
+
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.yumemiapp.ui.FavoriteFragment"
