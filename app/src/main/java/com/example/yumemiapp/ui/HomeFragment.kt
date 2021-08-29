@@ -10,8 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.yumemiapp.R
 import com.example.yumemiapp.databinding.FragmentHomeBinding
+import com.example.yumemiapp.model.data.Profile
 import com.example.yumemiapp.ui.adapter.HomeAdapter
 import com.example.yumemiapp.util.State
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,6 +53,16 @@ class HomeFragment : Fragment() {
                                 LinearLayoutManager(requireContext()).orientation
                             )
                         )
+
+                        adapter.setOnItemClickListener(object :
+                            HomeAdapter.OnItemClickListener {
+                            override fun onDetailClickListener(profile: Profile) {
+                                findNavController().navigate(
+                                    HomeFragmentDirections
+                                        .actionHomeFragmentToDetailFragment(profile)
+                                )
+                            }
+                        })
                     }
                 }
                 is State.Error -> {
