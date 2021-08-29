@@ -2,8 +2,10 @@ package com.example.yumemiapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.yumemiapp.R
 import com.example.yumemiapp.databinding.ActivityMainBinding
@@ -25,5 +27,20 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_container
             )
         )
+
+        findNavController(R.id.fragment_container).addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id){
+                R.id.homeFragment, R.id.favoriteFragment -> showBottomNav()
+                R.id.detailFragment, R.id.githubFragment -> hideBottomNav()
+            }
+        }
+    }
+
+    private fun showBottomNav() {
+        binding.bottomNavigation.visibility= View.VISIBLE
+    }
+
+    private fun hideBottomNav() {
+        binding.bottomNavigation.visibility= View.INVISIBLE
     }
 }

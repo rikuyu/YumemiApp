@@ -86,7 +86,7 @@
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/ic_home"
         android:paddingHorizontal="8dp"
-        android:text="@string/home_fragment_title"
+        android:text="@string/label_home"
         app:layout_constraintEnd_toEndOf="@+id/guide_end"
         app:layout_constraintStart_toStartOf="@+id/guide_begin"
         app:layout_constraintTop_toBottomOf="@+id/button_following" />
