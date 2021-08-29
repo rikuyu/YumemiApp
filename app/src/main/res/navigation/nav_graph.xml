@@ -34,9 +34,51 @@
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
 
+        <action
+            android:id="@+id/action_detailFragment_to_followingFragment"
+            app:destination="@+id/followingFragment"
+            app:enterAnim="@anim/slide_in_from_left"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+      
+        <action
+            android:id="@+id/action_detailFragment_to_githubFragment"
+            app:destination="@+id/githubFragment"
+            app:enterAnim="@anim/slide_in_from_left"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
         <argument
             android:name="profileInfo"
             app:argType="com.example.yumemiapp.model.data.Profile"/>
+
+    </fragment>
+
+<!--    todo    github-fragment -->
+
+    <fragment
+        android:id="@+id/githubFragment"
+        android:name="com.example.yumemiapp.ui.GithubFragment"
+        android:label="GithubFragment"
+        tools:layout="@layout/fragment_github" >
+
+        <argument
+            android:name="github_url"
+            app:argType="string"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/followingFragment"
+        android:name="com.example.yumemiapp.ui.FollowingFragment"
+        android:label="FollowingFragment"
+        tools:layout="@layout/fragment_following" >
+
+        <argument
+            android:name="userName"
+            app:argType="string"/>
 
     </fragment>
 
