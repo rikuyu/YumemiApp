@@ -56,8 +56,6 @@
 
     </fragment>
 
-<!--    todo    github-fragment -->
-
     <fragment
         android:id="@+id/githubFragment"
         android:name="com.example.yumemiapp.ui.GithubFragment"

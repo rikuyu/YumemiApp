@@ -62,6 +62,11 @@ class HomeFragment : Fragment() {
                                         .actionHomeFragmentToDetailFragment(profile)
                                 )
                             }
+
+                            override fun onFavoriteClickListener(profile: Profile) {
+                                viewModel.insertContributer(profile)
+                                Toast.makeText(requireContext(), "いいね", Toast.LENGTH_LONG).show()
+                            }
                         })
                     }
                 }
