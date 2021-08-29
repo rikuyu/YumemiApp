@@ -15,4 +15,6 @@ class MainRepository @Inject constructor(
     suspend fun getFollowings(userName: String): Response<List<ContributersItem>> {
         return api.getFollowings(userName)
     }
+
+//    todo
 }
