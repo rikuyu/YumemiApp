@@ -43,8 +43,9 @@ class DetailFragment : Fragment() {
             findNavController().navigate(
                 DetailFragmentDirections
                     .actionDetailFragmentToFollowingFragment(args.profileInfo.name)
+            )
         }
-        
+
         binding.github.setOnClickListener {
             findNavController().navigate(
                 DetailFragmentDirections
@@ -53,7 +54,7 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun loadDetailInfo(){
+    private fun loadDetailInfo() {
         binding.contributerName.text = args.profileInfo.name
         Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributerIcon)
     }
