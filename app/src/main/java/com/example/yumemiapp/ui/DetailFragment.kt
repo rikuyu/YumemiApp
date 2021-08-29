@@ -38,10 +38,17 @@ class DetailFragment : Fragment() {
             )
         }
 
+
         binding.buttonFollowing.setOnClickListener {
             findNavController().navigate(
                 DetailFragmentDirections
                     .actionDetailFragmentToFollowingFragment(args.profileInfo.name)
+        }
+        
+        binding.github.setOnClickListener {
+            findNavController().navigate(
+                DetailFragmentDirections
+                    .actionDetailFragmentToGithubFragment(args.profileInfo.html_url)
             )
         }
     }
