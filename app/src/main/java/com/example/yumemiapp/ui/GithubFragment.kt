@@ -30,7 +30,10 @@ class GithubFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        startWebView()
+    }
 
+    private fun startWebView(){
         binding.webView.apply {
             webViewClient = object: WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -45,5 +48,4 @@ class GithubFragment : Fragment() {
             loadUrl(args.githubUrl)
         }
     }
-
 }

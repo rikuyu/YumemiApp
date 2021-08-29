@@ -35,22 +35,13 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        todo
-
-        adapter = FavoriteAdapter(requireContext())
-
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(),
-                LinearLayoutManager(requireContext()).orientation
-            )
-        )
-
+        setUpRecyclerView()
         viewModel.getFavoriteContributers()
         showProgressbar()
+        observeLiveData()
+    }
+
+    private fun observeLiveData(){
         viewModel.favoList.observe(viewLifecycleOwner){
             hideProgressbar()
 
@@ -73,6 +64,20 @@ class FavoriteFragment : Fragment() {
                 }
             })
         }
+    }
+
+    private fun setUpRecyclerView(){
+        adapter = FavoriteAdapter(requireContext())
+
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager(requireContext()).orientation
+            )
+        )
     }
 
     private fun showProgressbar() {

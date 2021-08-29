@@ -30,14 +30,21 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loadDetailInfo()
+        setOnClickListener()
+    }
 
+    private fun loadDetailInfo() {
+        binding.contributerName.text = args.profileInfo.name
+        Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributerIcon)
+    }
+
+    private fun setOnClickListener(){
         binding.buttonBack.setOnClickListener {
             findNavController().navigate(
                 DetailFragmentDirections
                     .actionDetailFragmentToHomeFragment()
             )
         }
-
 
         binding.buttonFollowing.setOnClickListener {
             findNavController().navigate(
@@ -52,10 +59,5 @@ class DetailFragment : Fragment() {
                     .actionDetailFragmentToGithubFragment(args.profileInfo.html_url)
             )
         }
-    }
-
-    private fun loadDetailInfo() {
-        binding.contributerName.text = args.profileInfo.name
-        Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributerIcon)
     }
 }

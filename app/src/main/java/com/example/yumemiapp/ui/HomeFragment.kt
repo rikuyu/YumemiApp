@@ -36,7 +36,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeLiveData()
+    }
 
+    private fun observeLiveData(){
         viewModel.contributers.observe(viewLifecycleOwner, { response ->
             showProgressbar()
             when (response) {

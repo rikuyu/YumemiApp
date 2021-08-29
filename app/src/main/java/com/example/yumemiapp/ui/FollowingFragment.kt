@@ -36,9 +36,11 @@ class FollowingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val userName = args.userName
-
         viewModel.getFollowing(userName)
+        observeLiveData()
+    }
 
+    private fun observeLiveData(){
         viewModel.followings.observe(viewLifecycleOwner, { response ->
             showProgressbar()
             when (response) {
@@ -62,6 +64,7 @@ class FollowingFragment : Fragment() {
             }
         })
     }
+
 
     private fun showProgressbar() {
         binding.progressBar.visibility = View.VISIBLE
