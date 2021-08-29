@@ -35,6 +35,8 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        todo
+
         adapter = FavoriteAdapter(requireContext())
 
         binding.recyclerView.adapter = adapter
