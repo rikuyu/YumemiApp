@@ -19,6 +19,9 @@ class MainViewModel @Inject constructor(
     private val _contributers: MutableLiveData<State<List<ContributersItem>>> = MutableLiveData()
     val contributers: LiveData<State<List<ContributersItem>>> = _contributers
 
+    private val _followings: MutableLiveData<State<List<ContributersItem>>> = MutableLiveData()
+    val followings: LiveData<State<List<ContributersItem>>> = _followings
+
 
     init {
         fetchContributers()
@@ -34,6 +37,20 @@ class MainViewModel @Inject constructor(
                 }
             }else{
                 _contributers.value = State.Error("Error")
+            }
+        }
+    }
+
+    fun getFollowing(userNmae: String){
+        viewModelScope.launch {
+            _followings.value = State.Loading()
+            val response = repository.getFollowings(userNmae)
+            if(response.isSuccessful){
+                response.body()?.let {
+                    _followings.value = State.Success(it)
+                }
+            }else{
+                _followings.value = State.Error("Error")
             }
         }
     }
