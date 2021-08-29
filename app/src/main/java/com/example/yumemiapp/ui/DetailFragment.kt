@@ -37,6 +37,13 @@ class DetailFragment : Fragment() {
                     .actionDetailFragmentToHomeFragment()
             )
         }
+
+        binding.buttonFollowing.setOnClickListener {
+            findNavController().navigate(
+                DetailFragmentDirections
+                    .actionDetailFragmentToFollowingFragment(args.profileInfo.name)
+            )
+        }
     }
 
     private fun loadDetailInfo(){
