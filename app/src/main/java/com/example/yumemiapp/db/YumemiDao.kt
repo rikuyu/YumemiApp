@@ -1,15 +1,12 @@
 package com.example.yumemiapp.db
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.yumemiapp.model.data.Profile
 
 @Dao
 interface YumemiDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertContributer(contributer: Profile)
 
     @Delete
