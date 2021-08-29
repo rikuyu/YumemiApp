@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.yumemiapp.model.data.ContributersItem
+import com.example.yumemiapp.model.data.Profile
 import com.example.yumemiapp.model.repository.MainRepository
 import com.example.yumemiapp.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,8 @@ class MainViewModel @Inject constructor(
     private val _followings: MutableLiveData<State<List<ContributersItem>>> = MutableLiveData()
     val followings: LiveData<State<List<ContributersItem>>> = _followings
 
+    private val _favoList: MutableLiveData<List<Profile>> = MutableLiveData()
+    val favoList: LiveData<List<Profile>> = _favoList
 
     init {
         fetchContributers()
@@ -52,6 +55,22 @@ class MainViewModel @Inject constructor(
             }else{
                 _followings.value = State.Error("Error")
             }
+        }
+    }
+
+    fun getFavoriteContributers(){
+        _favoList.value = repository.getContributers()
+    }
+
+    fun insertContributer(contributer: Profile){
+        viewModelScope.launch {
+            repository.insertContributer(contributer)
+        }
+    }
+
+    fun deleteContributer(contributer: Profile){
+        viewModelScope.launch {
+            repository.deleteContributer(contributer)
         }
     }
 }
