@@ -17,6 +17,7 @@ class HomeAdapter(private val context: Context, private val contributers: List<C
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
     private lateinit var detailListener: OnItemClickListener
+    private lateinit var favoriteListener: OnItemClickListener
 
     class HomeHolder(view: View) : RecyclerView.ViewHolder(view) {
         val buttonDetail: ImageView = view.findViewById(R.id.button_detail)
@@ -48,6 +49,10 @@ class HomeAdapter(private val context: Context, private val contributers: List<C
         holder.buttonDetail.setOnClickListener {
             detailListener.onDetailClickListener(profile)
         }
+
+        holder.buttonFavorite.setOnClickListener {
+            favoriteListener.onFavoriteClickListener(profile)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -56,9 +61,11 @@ class HomeAdapter(private val context: Context, private val contributers: List<C
 
     interface OnItemClickListener {
         fun onDetailClickListener(profile: Profile)
+        fun onFavoriteClickListener(profile: Profile)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.detailListener = listener
+        this.favoriteListener = listener
     }
 }

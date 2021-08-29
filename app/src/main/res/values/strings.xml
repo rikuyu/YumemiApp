@@ -3,6 +3,8 @@
 
     <string name="label_home">Home</string>
     <string name="label_detail">詳細</string>
+    <string name="label_favorite">Favorite</string>
     <string name="label_following">Followings</string>
     <string name="following">フォロー</string>
+    <string name="nothing_message">いいねがありません</string>
 </resources>
