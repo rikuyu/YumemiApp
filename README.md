@@ -23,7 +23,7 @@ URLに問い合わせてContributerを表示するアプリ
 - 各Contributer の画面からそのContributer のGithubページを表示する際に WebView を採用し、ローディング中にProgressBar を表示するようにした。
 - BottomNavigationView のアイコンの色が押下状態によって変わるようにした。
 - 機能によってGitブランチをちゃんと使い分けた。
-- issue を作成し、後から見直し、理解できるようにした。
+- issue PRを作成し、紐づけ、後から見直し、理解できるようにした。
 
 ### うまく実装できなかった点
 - Coroutine Flow の導入...正直あまり理解していないので導入できなかった。
