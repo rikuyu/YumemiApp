@@ -8,12 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yumemiapp.R
-import com.example.yumemiapp.model.data.ContributersItem
+import com.example.yumemiapp.model.data.ContributorsItem
 import de.hdodenhof.circleimageview.CircleImageView
 
-class FollowingAdapter(private val context: Context, private val followings: List<ContributersItem>): RecyclerView.Adapter<FollowingAdapter.FollowingHolder>() {
+class FollowingAdapter(
+    private val context: Context,
+    private val followings: List<ContributorsItem>
+) : RecyclerView.Adapter<FollowingAdapter.FollowingHolder>() {
 
-    class FollowingHolder(view: View): RecyclerView.ViewHolder(view){
+    class FollowingHolder(view: View) : RecyclerView.ViewHolder(view) {
         val icon: CircleImageView = view.findViewById(R.id.contributer_icon)
         val name: TextView = view.findViewById(R.id.contributer_name)
     }

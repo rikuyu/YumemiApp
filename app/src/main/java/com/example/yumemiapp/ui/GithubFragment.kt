@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
-import com.example.yumemiapp.R
 import com.example.yumemiapp.databinding.FragmentGithubBinding
 
 class GithubFragment : Fragment() {
@@ -38,9 +37,9 @@ class GithubFragment : Fragment() {
         _binding = null
     }
 
-    private fun startWebView(){
+    private fun startWebView() {
         binding.webView.apply {
-            webViewClient = object: WebViewClient() {
+            webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                     binding.progressBar.visibility = View.VISIBLE
                 }

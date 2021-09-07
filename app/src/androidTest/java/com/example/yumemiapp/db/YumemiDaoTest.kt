@@ -42,7 +42,7 @@ class YumemiDaoTest {
     }
 
     @Test
-    fun insertContributer() = runBlockingTest {
+    fun insertContributor() = runBlockingTest {
         val contributer = Profile(
             id = 1,
             avatar_url = "dummy_url",
@@ -52,14 +52,14 @@ class YumemiDaoTest {
             html_url = "dummy_url",
         )
 
-        dao.insertContributer(contributer)
-        val allContributers = dao.getContributers()
+        dao.insertContributor(contributer)
+        val allContributors = dao.getContributors()
 
-        assertThat(allContributers).contains(contributer)
+        assertThat(allContributors).contains(contributer)
     }
 
     @Test
-    fun deleteContributer() = runBlockingTest {
+    fun deleteContributor() = runBlockingTest {
         val contributer = Profile(
             id = 1,
             avatar_url = "dummy_url",
@@ -69,11 +69,11 @@ class YumemiDaoTest {
             html_url = "dummy_url",
         )
 
-        dao.insertContributer(contributer)
-        dao.deleteContributer(contributer)
-        val allContributers = dao.getContributers()
+        dao.insertContributor(contributer)
+        dao.deleteContributor(contributer)
+        val allContributors = dao.getContributors()
 
-        assertThat(allContributers).doesNotContain(contributer)
+        assertThat(allContributors).doesNotContain(contributer)
     }
 
 }

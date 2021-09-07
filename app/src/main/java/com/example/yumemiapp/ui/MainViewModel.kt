@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.yumemiapp.model.data.ContributersItem
+import com.example.yumemiapp.model.data.ContributorsItem
 import com.example.yumemiapp.model.data.Profile
 import com.example.yumemiapp.model.repository.MainRepository
 import com.example.yumemiapp.util.State
@@ -15,62 +15,62 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: MainRepository
-)  : ViewModel() {
+) : ViewModel() {
 
-    private val _contributers: MutableLiveData<State<List<ContributersItem>>> = MutableLiveData()
-    val contributers: LiveData<State<List<ContributersItem>>> = _contributers
+    private val _contributers: MutableLiveData<State<List<ContributorsItem>>> = MutableLiveData()
+    val contributers: LiveData<State<List<ContributorsItem>>> = _contributers
 
-    private val _followings: MutableLiveData<State<List<ContributersItem>>> = MutableLiveData()
-    val followings: LiveData<State<List<ContributersItem>>> = _followings
+    private val _followings: MutableLiveData<State<List<ContributorsItem>>> = MutableLiveData()
+    val followings: LiveData<State<List<ContributorsItem>>> = _followings
 
     private val _favoList: MutableLiveData<List<Profile>> = MutableLiveData()
     val favoList: LiveData<List<Profile>> = _favoList
 
     init {
-        fetchContributers()
+        fetchContributors()
     }
 
-    private fun fetchContributers(){
+    private fun fetchContributors() {
         viewModelScope.launch {
             _contributers.value = State.Loading()
-            val response = repository.fetchContributers()
-            if(response.isSuccessful){
+            val response = repository.fetchContributors()
+            if (response.isSuccessful) {
                 response.body()?.let {
                     _contributers.value = State.Success(it)
                 }
-            }else{
+            } else {
                 _contributers.value = State.Error("Error")
             }
         }
     }
 
-    fun getFollowing(userNmae: String){
+    fun getFollowing(userNmae: String) {
         viewModelScope.launch {
             _followings.value = State.Loading()
             val response = repository.getFollowings(userNmae)
-            if(response.isSuccessful){
+            if (response.isSuccessful) {
                 response.body()?.let {
                     _followings.value = State.Success(it)
                 }
-            }else{
+            } else {
                 _followings.value = State.Error("Error")
             }
         }
     }
 
-    fun getFavoriteContributers(){
-        _favoList.value = repository.getContributers()
+    fun getFavoriteContributors() {
+        _favoList.value = repository.getContributors()
     }
 
-    fun insertContributer(contributer: Profile){
+    fun insertContributor(contributer: Profile) {
         viewModelScope.launch {
-            repository.insertContributer(contributer)
+            repository.insertContributor(contributer)
         }
     }
 
-    fun deleteContributer(contributer: Profile){
+    fun deleteContributor(contributer: Profile) {
         viewModelScope.launch {
-            repository.deleteContributer(contributer)
+            repository.deleteContributor(contributer)
         }
     }
 }

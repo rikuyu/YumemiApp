@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         findNavController(R.id.fragment_container).addOnDestinationChangedListener { _, destination, _ ->
-            when(destination.id){
+            when (destination.id) {
                 R.id.homeFragment, R.id.favoriteFragment -> showBottomNav()
                 R.id.detailFragment, R.id.githubFragment -> hideBottomNav()
             }
@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showBottomNav() {
-        binding.bottomNavigation.visibility= View.VISIBLE
+        binding.bottomNavigation.visibility = View.VISIBLE
     }
 
     private fun hideBottomNav() {
-        binding.bottomNavigation.visibility= View.INVISIBLE
+        binding.bottomNavigation.visibility = View.INVISIBLE
     }
 }

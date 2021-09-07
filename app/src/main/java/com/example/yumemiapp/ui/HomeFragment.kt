@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
                             }
 
                             override fun onFavoriteClickListener(profile: Profile) {
-                                viewModel.insertContributer(profile)
+                                viewModel.insertContributor(profile)
                                 Toast.makeText(requireContext(), "いいね", Toast.LENGTH_LONG).show()
                             }
                         })

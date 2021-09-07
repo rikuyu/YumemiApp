@@ -39,11 +39,11 @@ class DetailFragment : Fragment() {
     }
 
     private fun loadDetailInfo() {
-        binding.contributerName.text = args.profileInfo.name
-        Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributerIcon)
+        binding.contributorName.text = args.profileInfo.name
+        Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributorIcon)
     }
 
-    private fun setOnClickListener(){
+    private fun setOnClickListener() {
         binding.buttonBack.setOnClickListener {
             findNavController().navigate(
                 DetailFragmentDirections

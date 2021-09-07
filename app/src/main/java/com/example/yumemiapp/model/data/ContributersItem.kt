@@ -1,6 +1,6 @@
 package com.example.yumemiapp.model.data
 
-data class ContributersItem(
+data class ContributorsItem(
     val avatar_url: String,
     val contributions: Int,
     val events_url: String,

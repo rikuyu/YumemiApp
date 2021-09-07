@@ -7,11 +7,11 @@ import com.example.yumemiapp.model.data.Profile
 interface YumemiDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertContributer(contributer: Profile)
+    suspend fun insertContributor(contributor: Profile)
 
     @Delete
-    suspend fun deleteContributer(contributer: Profile)
+    suspend fun deleteContributor(contributor: Profile)
 
-    @Query("SELECT * FROM contributers")
-    fun getContributers(): List<Profile>
+    @Query("SELECT * FROM contributors")
+    fun getContributors(): List<Profile>
 }

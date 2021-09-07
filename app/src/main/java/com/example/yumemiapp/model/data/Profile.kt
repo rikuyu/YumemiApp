@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "contributers")
+@Entity(tableName = "contributors")
 data class Profile(
     @PrimaryKey val id: Int,
     val avatar_url: String,
@@ -14,4 +14,4 @@ data class Profile(
     val following_url: String,
     val name: String,
     val html_url: String,
-): Parcelable
+) : Parcelable

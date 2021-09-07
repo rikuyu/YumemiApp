@@ -10,17 +10,19 @@ import com.bumptech.glide.Glide
 import com.example.yumemiapp.databinding.FavoriteItemBinding
 import com.example.yumemiapp.model.data.Profile
 
-class FavoriteAdapter(private val context: Context): ListAdapter<Profile, FavoriteAdapter.FavoriteHolder>(FavoriteComparator()) {
+class FavoriteAdapter(private val context: Context) :
+    ListAdapter<Profile, FavoriteAdapter.FavoriteHolder>(FavoriteComparator()) {
 
     private lateinit var deleteBtnListener: DeleteItem
 
-    inner class FavoriteHolder(private val binding: FavoriteItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(profile: Profile){
+    inner class FavoriteHolder(private val binding: FavoriteItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(profile: Profile) {
             binding.apply {
-                favoriteContributerName.text = profile.name
-                Glide.with(context).load(profile.avatar_url).into(favoriteContributerIcon)
+                favoriteContributorName.text = profile.name
+                Glide.with(context).load(profile.avatar_url).into(favoriteContributorIcon)
                 buttonDelete.setOnClickListener {
-                    deleteBtnListener.deleteContributer(profile)
+                    deleteBtnListener.deleteContributor(profile)
                 }
             }
         }
@@ -37,7 +39,7 @@ class FavoriteAdapter(private val context: Context): ListAdapter<Profile, Favori
     }
 
     interface DeleteItem {
-        fun deleteContributer(profile: Profile)
+        fun deleteContributor(profile: Profile)
     }
 
     fun setOnDeleteClickListener(listener: DeleteItem) {

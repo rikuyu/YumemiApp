@@ -36,7 +36,7 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRecyclerView()
-        viewModel.getFavoriteContributers()
+        viewModel.getFavoriteContributors()
         showProgressbar()
         observeLiveData()
     }
@@ -46,8 +46,8 @@ class FavoriteFragment : Fragment() {
         _binding = null
     }
 
-    private fun observeLiveData(){
-        viewModel.favoList.observe(viewLifecycleOwner){
+    private fun observeLiveData() {
+        viewModel.favoList.observe(viewLifecycleOwner) {
             hideProgressbar()
 
             binding.favoriteNum.text = getString(R.string.nothing_message)
@@ -61,17 +61,17 @@ class FavoriteFragment : Fragment() {
             adapter.submitList(it)
             adapter.setOnDeleteClickListener(object :
                 FavoriteAdapter.DeleteItem {
-                override fun deleteContributer(profile: Profile) {
-                    viewModel.deleteContributer(profile)
+                override fun deleteContributor(profile: Profile) {
+                    viewModel.deleteContributor(profile)
                     Toast.makeText(requireContext(), "削除", Toast.LENGTH_LONG).show()
-                    viewModel.getFavoriteContributers()
+                    viewModel.getFavoriteContributors()
                     adapter.submitList(it)
                 }
             })
         }
     }
 
-    private fun setUpRecyclerView(){
+    private fun setUpRecyclerView() {
         adapter = FavoriteAdapter(requireContext())
 
         binding.recyclerView.adapter = adapter

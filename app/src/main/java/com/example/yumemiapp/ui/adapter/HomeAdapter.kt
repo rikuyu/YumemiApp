@@ -9,11 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yumemiapp.R
-import com.example.yumemiapp.model.data.ContributersItem
+import com.example.yumemiapp.model.data.ContributorsItem
 import com.example.yumemiapp.model.data.Profile
 import de.hdodenhof.circleimageview.CircleImageView
 
-class HomeAdapter(private val context: Context, private val contributers: List<ContributersItem>) :
+class HomeAdapter(private val context: Context, private val contributers: List<ContributorsItem>) :
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
     private lateinit var detailListener: OnItemClickListener

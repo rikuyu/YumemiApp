@@ -1,6 +1,6 @@
 ## YumemiApp
 ### 概要
-URLに問い合わせてContributerを表示するアプリ
+URLに問い合わせてContributorを表示するアプリ
 
 ### 使用技術など
 - MVVM architecture
@@ -20,7 +20,7 @@ URLに問い合わせてContributerを表示するアプリ
 - 画面遷移時に Navigation の SafeArgs を利用した。
 - いいね画面の Adapter に パフォーマンスを考慮し、DiffUtil を採用した。
 - APIを利用した通信中に通信状態を確認できるように State class を導入した。[付録: ネットワーク ステータスの公開](https://developer.android.com/jetpack/guide?hl=ja)
-- 各Contributer の画面からそのContributer のGithubページを表示する際に WebView を採用し、ローディング中にProgressBar を表示するようにした。
+- 各Contributor の画面からそのContributor のGithubページを表示する際に WebView を採用し、ローディング中にProgressBar を表示するようにした。
 - BottomNavigationView のアイコンの色が押下状態によって変わるようにした。
 - 機能によってGitブランチをちゃんと使い分けた。
 - issue PRを作成し、紐づけ、後から見直し、理解できるようにした。
