@@ -33,6 +33,11 @@ class DetailFragment : Fragment() {
         setOnClickListener()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun loadDetailInfo() {
         binding.contributerName.text = args.profileInfo.name
         Glide.with(this).load(args.profileInfo.avatar_url).into(binding.contributerIcon)

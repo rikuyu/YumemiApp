@@ -41,6 +41,11 @@ class FavoriteFragment : Fragment() {
         observeLiveData()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun observeLiveData(){
         viewModel.favoList.observe(viewLifecycleOwner){
             hideProgressbar()

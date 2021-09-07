@@ -39,6 +39,11 @@ class HomeFragment : Fragment() {
         observeLiveData()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun observeLiveData(){
         viewModel.contributers.observe(viewLifecycleOwner, { response ->
             showProgressbar()

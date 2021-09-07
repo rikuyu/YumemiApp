@@ -40,6 +40,11 @@ class FollowingFragment : Fragment() {
         observeLiveData()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun observeLiveData(){
         viewModel.followings.observe(viewLifecycleOwner, { response ->
             showProgressbar()

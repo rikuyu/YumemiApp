@@ -33,6 +33,11 @@ class GithubFragment : Fragment() {
         startWebView()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun startWebView(){
         binding.webView.apply {
             webViewClient = object: WebViewClient() {
